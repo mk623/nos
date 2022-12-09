@@ -1,0 +1,1 @@
+cmd_/home/ubuntu/nos/zad2/lab2b/shofer.ko := ld -r  -m elf_x86_64  --build-id=sha1  -T scripts/module.lds -o /home/ubuntu/nos/zad2/lab2b/shofer.ko /home/ubuntu/nos/zad2/lab2b/shofer.o /home/ubuntu/nos/zad2/lab2b/shofer.mod.o;  true

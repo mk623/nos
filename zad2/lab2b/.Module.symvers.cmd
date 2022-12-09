@@ -1,0 +1,1 @@
+cmd_/home/ubuntu/nos/zad2/lab2b/Module.symvers := sed 's/\.ko$$/\.o/' /home/ubuntu/nos/zad2/lab2b/modules.order | scripts/mod/modpost -m -a  -o /home/ubuntu/nos/zad2/lab2b/Module.symvers -e -i Module.symvers   -T -
