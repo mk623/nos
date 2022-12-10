@@ -50,8 +50,9 @@
 
             /* Deal with array returned by poll(). */
 
+            
             for (int j = 0; j < nfds; j++) {
-                char buf[10];
+                char buf[5];
 
                 if (pfds[j].revents != 0) {
                     printf("  fd=%d; events: %s%s%s\n", pfds[j].fd,
@@ -65,6 +66,7 @@
                             errExit("read");
                         printf("    read %zd bytes: %.*s\n",
                                 s, (int) s, buf);
+                                sleep(5);
                     } else {                /* POLLERR | POLLHUP */
                         printf("    closing fd %d\n", pfds[j].fd);
                         if (close(pfds[j].fd) == -1)

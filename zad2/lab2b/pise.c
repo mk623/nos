@@ -50,6 +50,7 @@
 
             /* Deal with array returned by poll(). */
 
+            
             for (int j = 0; j < nfds; j++) {
                 char buf[10];
 
@@ -70,6 +71,8 @@
                             errExit("write");
                         printf("    write %zd bytes: %.*s\n",
                                 s, (int) s, buf);
+                                sleep(5);
+                                
                     } else {                /* POLLERR | POLLHUP */
                         printf("    closing fd %d\n", pfds[j].fd);
                         if (close(pfds[j].fd) == -1)

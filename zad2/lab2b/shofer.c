@@ -336,7 +336,8 @@ static long control_ioctl (struct file *filp, unsigned int cmd, unsigned long ar
 
 	/* copy cmd bytes from in_buff to out_buff */
 	/* todo (similar to timer) */
-	for(i = 0; i < cmd+1; i++) {
+	int i;
+	for(i = 0; i < cmd; i++) {
 		spin_lock(&out_buff->key);
 		spin_lock(&in_buff->key);
 
@@ -355,9 +356,10 @@ static long control_ioctl (struct file *filp, unsigned int cmd, unsigned long ar
 			else { /* should't happen! */
 				klog(KERN_WARNING, "kfifo_get failed\n");
 			}
-			retval+=1
+			retval+=1;
 		}
 		else {
+			LOG("ioctl: nothing in input buffer");
 			spin_unlock(&in_buff->key);
 			spin_unlock(&out_buff->key);
 			return retval;
